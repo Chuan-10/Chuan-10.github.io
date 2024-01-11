@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Jin-Chuan Shi</title>
+
+  <meta name="author" content="Jin-Chuan Shi">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" href="img/jinchuan.jpg">
+</head>
+
+<body>
+  <table
+    style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+
+          <!-- 1 INTRO -->
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr style="padding:0px">
+                <td style="padding:2.5%;width:63%;vertical-align:middle">
+                  <p style="text-align:center">
+                    <name>Jin-Chuan Shi</name>
+                  </p>
+                  <p align="justify">
+                    I am currently a second-year master student at <a href="https://ev.buaa.edu.cn">Beihang University</a>, 
+                    advised by <a href="http://miaowang.me/">Assoc. Prof. Miao Wang</a> and <a href="https://cg.cs.tsinghua.edu.cn/shimin.htm">Prof. Shimin Hu</a>.
+                  </p>
+                  <p align="justify">
+                    I received my B.Eng. degree at the Honors College of Beihang University, major in Computer Science. 
+                    During that time, I was a research intern specializing in interaction and collaboration in Virtual Reality, under the guidance of Assoc. Prof. Miao Wang.
+                  </p>
+                  <p align="justify">
+                    My research interests lie primarily in Computer Graphics and Computer Vision, mainly focusing on 3D Nerual Representations. Besides, I also have a broad interest in Virtual Reality.
+                  </p>
+                  <p style="text-align:center">
+                    <a href="mailto:jinchuanshi@buaa.edu.cn">Email</a> &nbsp/&nbsp
+                    <!-- <a href="data/JonBarron-CV.pdf">CV</a> &nbsp/&nbsp -->
+                    <!-- <a href="data/JonBarron-bio.txt">Bio</a> &nbsp/&nbsp -->
+                    <a href="https://scholar.google.com/citations?user=N1Imm0oAAAAJ">Google Scholar</a> &nbsp/&nbsp
+                    <!-- <a href="https://twitter.com/jon_barron">Twitter</a> &nbsp/&nbsp -->
+                    <a href="https://github.com/Chuan-10">Github</a>
+                  </p>
+                </td>
+                <td style="padding:2.5%;width:40%;max-width:40%">
+                  <a href="img/jinchuan.jpg"><img style="width:100%;max-width:100%" alt="profile photo"
+                      src="img/jinchuan.jpg" class="hoverZoomLink"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- 2 Research -->
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:0px;width:100%;vertical-align:middle">
+                  <heading>Research</heading>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+
+              <!-- 2.2 LEGaussians -->
+              <tr onmouseout="legaussian_stop()" onmouseover="legaussian_start()">
+                <td style="padding:20px;width:35%;vertical-align:middle;text-align:middle">
+                  <div class="one" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <div class="two" id='legaussian_image'><video  width=100% muted autoplay loop>
+                    <source src="img/legaussian_none.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='img/legaussian.png' width="100%">
+                  </div>
+                  <script type="text/javascript">
+                    function legaussian_start() {
+                      document.getElementById('legaussian_image').style.opacity = "1";
+                    }
+
+                    function legaussian_stop() {
+                      document.getElementById('legaussian_image').style.opacity = "0";
+                    }
+                    legaussian_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:65%;vertical-align:middle">
+                    <papertitle>LEGaussians: Language Embedded 3D Gaussians for Open-Vocabulary Scene Understanding
+                    </papertitle>
+                  <br>
+                  <strong>Jin-Chuan Shi</strong>,
+                  <a href="http://miaowang.me/">Miao Wang</a>,
+                  Hao-Bin Duan,
+                  Shao-Hua Guan
+                  <br>
+                  <p></p>
+                  <em>arXiv Preprint</em>, 2023
+                  <br>
+                  <a href="https://arxiv.org/pdf/2311.18482.pdf">Paper</a>
+                  /
+                  <a href="https://buaavrcg.github.io/LEGaussians/">Project Page</a>
+                  /
+                  <a href="https://github.com/Chuan-10/LEGaussians">Code</a>
+                  <!-- <img alt="GitHub Repo stars"
+                    src="https://img.shields.io/github/stars/Chuan-10/LEGaussians?style=social">
+                  <p></p> -->
+                  <p align="justify">
+                    We present Language Embedded 3D Gaussians, a novel scene representation for efficient open-vocabulary query tasks in 3D space. 
+                    It uses a memory-efficient quantization scheme and a novel embedding procedure to achieve high-quality query results, outperforming existing language-embedded representations in terms of visual quality and language querying accuracy, while maintaining real-time rendering on a single desktop GPU.
+                  </p>
+                </td>
+              </tr>
+
+              <!-- 2.1 BakedAvatar -->
+              <!-- <tr onmouseout="bakedavatar_stop()" onmouseover="bakedavatar_start()" bgcolor="#ffffd0"> -->
+              <tr onmouseout="bakedavatar_stop()" onmouseover="bakedavatar_start()">
+                <td style="padding:20px;width:35%;vertical-align:middle;text-align:middle">
+                  <div class="one" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <div class="two" id='bakedavatar_image'><video  width=100% muted autoplay loop>
+                    <source src="img/bakedavatar_none.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='img/bakedavatar.png' width="100%">
+                  </div>
+                  <script type="text/javascript">
+                    function bakedavatar_start() {
+                      document.getElementById('bakedavatar_image').style.opacity = "1";
+                    }
+                    function bakedavatar_stop() {
+                      document.getElementById('bakedavatar_image').style.opacity = "0";
+                    }
+                    bakedavatar_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:65%;vertical-align:middle">
+                    <papertitle>BakedAvatar: Baking Neural Fields for Real-Time Head Avatar Synthesis</papertitle>
+                  <br>
+                  Hao-Bin Duan,
+                  <a href="http://miaowang.me/">Miao Wang</a>,
+                  <strong>Jin-Chuan Shi</strong>,
+                  Xu-Chuan Chen,
+                  <a href="https://yanpei.me/">Yan-Pei Cao</a>
+                  <br>
+                  <p></p>
+                  <em>ACM Transactions on Graphics (SIGGRAPH Asia), 2023</em>
+                  <br>
+                  <a href="https://arxiv.org/abs/2311.05521">Paper</a>
+                  /
+                  <a href="https://buaavrcg.github.io/BakedAvatar/">Project Page</a>
+                  /
+                  <a href="https://github.com/buaavrcg/BakedAvatar">Code</a>
+                  <p align="justify">
+                    We present BakedAvatar, a real-time neural head avatar synthesis method for VR/AR and gaming, which uses multi-layered meshes and baked textures to significantly reduce computational cost while maintaining high-quality results and interactive frame rates on various devices including mobiles.
+                  </p>
+                </td>
+              </tr>
+              
+              <!-- 2.0 VR -->
+              <tr onmouseout="scenefusion_stop()" onmouseover="scenefusion_start()">
+                <td style="padding:20px;width:35%;vertical-align:middle;text-align:middle">
+                  <div class="one" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <div class="two" id='scenefusion_image'><video  width="100%" muted autoplay loop>
+                    <source src="img/scenefusion.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='img/scenefusion2-1.png' width="100%">
+                  </div>
+                  <script type="text/javascript">
+                    function scenefusion_start() {
+                      document.getElementById('scenefusion_image').style.opacity = "1";
+                    }
+                    function scenefusion_stop() {
+                      document.getElementById('scenefusion_image').style.opacity = "0";
+                    }
+                    scenefusion_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:65%;vertical-align:middle">
+                    <papertitle>SceneFusion: Room-Scale Environmental Fusion for Efficient Traveling Between Separate Virtual Environments</papertitle>
+                  <br>
+                  <a href="http://miaowang.me/">Miao Wang</a>,
+                  Yi-Jun Li,
+                  <strong>Jin-Chuan Shi</strong>,
+                  <a href="https://www.inf.uni-hamburg.de/en/inst/ab/hci/people/steinicke.html">Frank Steinicke</a>
+                  <br>
+                  <p></p>
+                  <em>IEEE Transactions on Visualization and Computer Graphics, 2023</em>
+                  <br>
+                  <a href="https://ieeexplore.ieee.org/document/10113740">Paper</a>
+                  <p align="justify">
+                    We present SceneFusion, an innovative navigation technique for efficient travel between virtual indoor scenes in VR environments, which fuses separate rooms to enhance visual continuity and spatial awareness, outperforming traditional teleportation and virtual portal methods in terms of efficiency, workload, and user preference in both single-user and multi-user scenarios.
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="comment_stop()" onmouseover="comment_start()">
+                <td style="padding:20px;width:35%;vertical-align:middle;text-align:middle">
+                  <div class="one" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <div class="two" id='comment_image'><video  width="100%" muted autoplay loop>
+                    <source src="img/comment.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='img/comment1.png' width="100%">
+                  </div>
+                  <script type="text/javascript">
+                    function comment_start() {
+                      document.getElementById('comment_image').style.opacity = "1";
+                    }
+                    function comment_stop() {
+                      document.getElementById('comment_image').style.opacity = "0";
+                    }
+                    comment_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:65%;vertical-align:middle">
+                    <papertitle>Bullet Comments for 360° Video</papertitle>
+                  <br>
+                  Yi-Jun Li,
+                  <strong>Jin-Chuan Shi</strong>,
+                  <a href="https://fanglue.github.io/">Fang-Lue Zhang</a>,
+                  <a href="http://miaowang.me/">Miao Wang</a>
+                  <br>
+                  <p></p>
+                  <em>IEEE VR, 2022</em>
+                  <br>
+                  <a href="https://ieeexplore.ieee.org/abstract/document/9756782">Paper</a>
+                  <p align="justify">
+                    We explore bullet comment display and insertion in 360° video using head-mounted displays and controllers, evaluating various methods and discussing design insights.
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="selection_stop()" onmouseover="selection_start()">
+                <td style="padding:20px;width:35%;vertical-align:middle;text-align:middle">
+                  <div class="one" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <div class="two" id='selection_image'><video  width="100%" muted autoplay loop>
+                    <source src="img/selection.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='img/selection.png' width="100%">
+                  </div>
+                  <script type="text/javascript">
+                    function selection_start() {
+                      document.getElementById('selection_image').style.opacity = "1";
+                    }
+                    function selection_stop() {
+                      document.getElementById('selection_image').style.opacity = "0";
+                    }
+                    selection_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:65%;vertical-align:middle">
+                    <papertitle>Scene-Context-Aware Indoor Object Selection and Movement in VR</papertitle>
+                  <br>
+                  <a href="http://miaowang.me/">Miao Wang</a>,
+                  Ziming Ye,
+                  <strong>Jin-Chuan Shi</strong>,
+                  <a href="https://www.yongliangyang.net/">Yong-Liang Yang</a>
+                  <br>
+                  <p></p>
+                  <em>IEEE VR, 2021</em>
+                  <br>
+                  <a href="https://ieeexplore.ieee.org/document/9417774">Paper</a>
+                  <p align="justify">
+                    We present an intelligent VR interior design tool that enhances object selection and movement by considering scene context, leading to improved user experience, as validated through various interaction modes and user studies.
+                  </p>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+    
+          <!-- 3 Ending -->
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:0px">
+                  <br>
+                  <p style="text-align:right;font-size:small;">
+                    Last updated: Dec 2023
+                    <br>
+                    Web page design credit to <a href="https://jonbarron.info" style="font-size: 14px">Jon Barron</a>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </td>
+      </tr>
+	</tbody>
+  </table>
+</body>
+
+</html>
