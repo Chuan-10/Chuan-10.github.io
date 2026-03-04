@@ -2,361 +2,265 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+  <meta charset="UTF-8">
   <title>Jin-Chuan Shi</title>
-
   <meta name="author" content="Jin-Chuan Shi">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" href="img/jinchuan.jpg">
 </head>
 
 <body>
-  <table
-    style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
+  <div class="container">
 
-          <!-- 1 INTRO -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:2.5%;width:63%;vertical-align:middle">
-                  <p style="text-align:center; display:flex; justify-content:center; align-items:center; gap:10px;">
-                    <name>Jin-Chuan Shi </name>
-                    <!-- <img src="img/name_cn.png" alt="石锦川" style="height:3.5em; vertical-align:middle;"> -->
-                  </p>
-                  <p align="justify">
-                    I am currently a Ph.D. student at <a href="https://www.zju.edu.cn/">Zhejiang University</a>, 
-                    advised by <a href="https://cshen.github.io/">Prof. Chunhua Shen</a> and <a href="https://stan-haochen.github.io/">Prof. Hao Chen</a>.
-                  </p>
-                  <p align="justify">
-                    I received my B.Eng. and M.Eng. degrees from <a href="https://www.buaa.edu.cn/">Beihang University</a>, 
-                    where I was fortunate to work with <a href="http://miaowang.me/">Prof. Miao Wang</a> and <a href="https://cg.cs.tsinghua.edu.cn/shimin.htm">Prof. Shimin Hu</a>.
-                  </p>
-                  <p align="justify">
-                    My research interests lie in <b>3D vision</b>, with a focus on 
-                    human–object interaction, hand and body reconstruction, and dynamic/static scene representation, 
-                    understanding, editing and generation.
-                  </p>
-                  <p style="text-align:center">
-                    <a href="mailto:jinchuanshi@zju.edu.cn">Email</a> &nbsp/&nbsp
-                    <a href="https://scholar.google.com/citations?user=N1Imm0oAAAAJ">Google Scholar</a> &nbsp/&nbsp
-                    <a href="https://github.com/Chuan-10">Github</a>
-                  </p>
-                </td>
-                <td style="padding:2.5%;width:40%;max-width:40%">
-                  <a href="img/jinchuan.jpg"><img style="width:100%;max-width:100%" alt="profile photo"
-                      src="img/jinchuan.jpg" class="hoverZoomLink"></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          
+    <!-- ① PROFILE -->
+    <header class="profile-section">
+      <div class="bio">
+        <h1 class="name">Jin-Chuan Shi</h1>
+        <div class="bio-text">
+          <p>
+            I am currently a Ph.D. student at <a href="https://www.zju.edu.cn/">Zhejiang University</a>,
+            advised by <a href="https://cshen.github.io/">Prof. Chunhua Shen</a> and
+            <a href="https://stan-haochen.github.io/">Prof. Hao Chen</a>.
+            My research focuses on hand–object interaction reconstruction and retargeting,
+            with an emphasis on dexterous hand manipulation and control.
+          </p>
+          <p>
+            I received my B.Eng. and M.Eng. degrees from <a href="https://www.buaa.edu.cn/">Beihang University</a>,
+            where I was fortunate to work with <a href="http://miaowang.me/">Prof. Miao Wang</a> and
+            <a href="https://cg.cs.tsinghua.edu.cn/shimin.htm">Prof. Shimin Hu</a>.
+          </p>
+        </div>
+        <nav class="social-links">
+          <a href="mailto:jinchuanshi@zju.edu.cn">Email</a>
+          <span class="divider">/</span>
+          <a href="https://scholar.google.com/citations?user=N1Imm0oAAAAJ">Google Scholar</a>
+          <span class="divider">/</span>
+          <a href="https://github.com/Chuan-10">Github</a>
+        </nav>
+      </div>
+      <div class="photo-wrapper">
+        <a href="img/jinchuan.jpg">
+          <img src="img/jinchuan.jpg" alt="Jin-Chuan Shi" class="profile-photo">
+        </a>
+      </div>
+    </header>
 
-          <!-- 2 Research -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:0px;width:100%;vertical-align:middle">
-                  <heading>Research</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
+    <!-- ② RESEARCH (tabbed: Selected / All Publications) -->
+    <section id="research">
+      <div class="research-header">
+        <h2 class="section-heading-inline">Research</h2>
+        <div class="tab-toggle">
+          <button class="tab-btn active" onclick="showResearchTab('selected')">Selected</button>
+          <button class="tab-btn" onclick="showResearchTab('all')">All Publications</button>
+        </div>
+      </div>
 
-              <!-- 2.2 LEGaussians -->
-              <tr onmouseout="legaussian_stop()" onmouseover="legaussian_start()">
-                <td style="padding:20px;width:35%;vertical-align:middle;text-align:middle">
-                  <div class="one" style="display: flex; align-items: center; justify-content: center; height: 100%;">
-                    <div class="two" id='legaussian_image'><video  width=100% muted autoplay loop>
-                    <source src="img/legaussian_none.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='img/legaussian.png' width="100%">
-                  </div>
-                  <script type="text/javascript">
-                    function legaussian_start() {
-                      document.getElementById('legaussian_image').style.opacity = "1";
-                    }
+      <div id="tab-selected">
+      <div class="papers">
 
-                    function legaussian_stop() {
-                      document.getElementById('legaussian_image').style.opacity = "0";
-                    }
-                    legaussian_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:65%;vertical-align:middle">
-                    <papertitle>LEGaussians: Language Embedded 3D Gaussians for Open-Vocabulary Scene Understanding
-                    </papertitle>
-                  <br>
-                  <strong>Jin-Chuan Shi</strong>,
-                  <a href="http://miaowang.me/">Miao Wang</a>,
-                  Hao-Bin Duan,
-                  Shao-Hua Guan
-                  <br>
-                  <p></p>
-                  <em>CVPR</em>, 2024. <em>TPAMI (Major Revision)</em> <br> 
-                  <br>
-                  <a href="https://arxiv.org/pdf/2311.18482.pdf">Paper</a>
-                  /
-                  <a href="https://buaavrcg.github.io/LEGaussians/">Project Page</a>
-                  /
-                  <a href="https://github.com/Chuan-10/LEGaussians">Code</a>
-                  <p align="justify">
-                    We present Language Embedded 3D Gaussians, a novel scene representation for efficient open-vocabulary query tasks in 3D space. 
-                    It uses a memory-efficient quantization scheme and a novel embedding procedure to achieve high-quality query results, outperforming existing language-embedded representations in terms of visual quality and language querying accuracy, while maintaining real-time rendering on a single desktop GPU.
-                  </p>
-                </td>
-              </tr>
+        <!-- Mono4DEditor -->
+        <div class="paper" onmouseout="mono4d_stop()" onmouseover="mono4d_start()">
+          <div class="paper-thumb">
+            <div class="one">
+              <div class="two" id="mono4d_image"></div>
+              <img src="img/mono4deditor.png" alt="Mono4DEditor">
+            </div>
+          </div>
+          <div class="paper-meta">
+            <p class="paper-title">Mono4DEditor: Text-Driven 4D Scene Editing from Monocular Video via Point-Level Localization of Language-Embedded Gaussians</p>
+            <p class="paper-authors">
+              <strong>Jin-Chuan Shi</strong>,
+              Chengye Su,
+              Jiajun Wang,
+              <a href="https://faculty.runi.ac.il/arik/site/index.asp">Ariel Shamir</a>,
+              <a href="http://miaowang.me/">Miao Wang</a>
+            </p>
+            <p class="paper-venue"><em>arXiv</em>, 2025</p>
+            <p class="paper-links">
+              <a href="https://arxiv.org/abs/2510.09438v1">Paper</a>
+            </p>
+          </div>
+        </div>
+        <script type="text/javascript">
+          function mono4d_start() { document.getElementById('mono4d_image').style.opacity = "1"; }
+          function mono4d_stop()  { document.getElementById('mono4d_image').style.opacity = "0"; }
+          mono4d_stop();
+        </script>
 
-              <!-- 2.1 BakedAvatar -->
-              <!-- <tr onmouseout="bakedavatar_stop()" onmouseover="bakedavatar_start()" bgcolor="#ffffd0"> -->
-              <tr onmouseout="bakedavatar_stop()" onmouseover="bakedavatar_start()">
-                <td style="padding:20px;width:35%;vertical-align:middle;text-align:middle">
-                  <div class="one" style="display: flex; align-items: center; justify-content: center; height: 100%;">
-                    <div class="two" id='bakedavatar_image'><video  width=100% muted autoplay loop>
-                    <source src="img/bakedavatar_none.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='img/bakedavatar.png' width="100%">
-                  </div>
-                  <script type="text/javascript">
-                    function bakedavatar_start() {
-                      document.getElementById('bakedavatar_image').style.opacity = "1";
-                    }
-                    function bakedavatar_stop() {
-                      document.getElementById('bakedavatar_image').style.opacity = "0";
-                    }
-                    bakedavatar_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:65%;vertical-align:middle">
-                    <papertitle>BakedAvatar: Baking Neural Fields for Real-Time Head Avatar Synthesis</papertitle>
-                  <br>
-                  Hao-Bin Duan,
-                  <a href="http://miaowang.me/">Miao Wang</a>,
-                  <strong>Jin-Chuan Shi</strong>,
-                  Xu-Chuan Chen,
-                  <a href="https://yanpei.me/">Yan-Pei Cao</a>
-                  <br>
-                  <p></p>
-                  <em>ACM Transactions on Graphics (SIGGRAPH Asia), 2023</em>
-                  <br>
-                  <a href="https://arxiv.org/abs/2311.05521">Paper</a>
-                  /
-                  <a href="https://buaavrcg.github.io/BakedAvatar/">Project Page</a>
-                  /
-                  <a href="https://github.com/buaavrcg/BakedAvatar">Code</a>
-                  <p align="justify">
-                    We present BakedAvatar, a real-time neural head avatar synthesis method for VR/AR and gaming, which uses multi-layered meshes and baked textures to significantly reduce computational cost while maintaining high-quality results and interactive frame rates on various devices including mobiles.
-                  </p>
-                </td>
-              </tr>
-              
-              <!-- VR -->
-              <tr onmouseout="scenefusion_stop()" onmouseover="scenefusion_start()">
-                <td style="padding:20px;width:35%;vertical-align:middle;text-align:middle">
-                  <div class="one" style="display: flex; align-items: center; justify-content: center; height: 100%;">
-                    <div class="two" id='scenefusion_image'><video  width="100%" muted autoplay loop>
-                    <source src="img/scenefusion.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='img/scenefusion2-1.png' width="100%">
-                  </div>
-                  <script type="text/javascript">
-                    function scenefusion_start() {
-                      document.getElementById('scenefusion_image').style.opacity = "1";
-                    }
-                    function scenefusion_stop() {
-                      document.getElementById('scenefusion_image').style.opacity = "0";
-                    }
-                    scenefusion_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:65%;vertical-align:middle">
-                    <papertitle>SceneFusion: Room-Scale Environmental Fusion for Efficient Traveling Between Separate Virtual Environments</papertitle>
-                  <br>
-                  <a href="http://miaowang.me/">Miao Wang</a>,
-                  Yi-Jun Li,
-                  <strong>Jin-Chuan Shi</strong>,
-                  <a href="https://www.inf.uni-hamburg.de/en/inst/ab/hci/people/steinicke.html">Frank Steinicke</a>
-                  <br>
-                  <p></p>
-                  <em>IEEE Transactions on Visualization and Computer Graphics, 2023</em>
-                  <br>
-                  <a href="https://ieeexplore.ieee.org/document/10113740">Paper</a>
-                  <p align="justify">
-                    We present SceneFusion, an innovative navigation technique for efficient travel between virtual indoor scenes in VR environments, which fuses separate rooms to enhance visual continuity and spatial awareness, outperforming traditional teleportation and virtual portal methods in terms of efficiency, workload, and user preference in both single-user and multi-user scenarios.
-                  </p>
-                </td>
-              </tr>
+        <!-- LEGaussians -->
+        <div class="paper" onmouseout="legaussian_stop()" onmouseover="legaussian_start()">
+          <div class="paper-thumb">
+            <div class="one">
+              <div class="two" id="legaussian_image">
+                <video width="100%" muted autoplay loop>
+                  <source src="img/legaussian_none.mp4" type="video/mp4">
+                </video>
+              </div>
+              <img src="img/legaussian.png" alt="LEGaussians">
+            </div>
+          </div>
+          <div class="paper-meta">
+            <p class="paper-title">LEGaussians: Language Embedded 3D Gaussians for Open-Vocabulary Scene Understanding</p>
+            <p class="paper-authors">
+              <strong>Jin-Chuan Shi</strong>,
+              <a href="http://miaowang.me/">Miao Wang</a>,
+              Hao-Bin Duan,
+              Shao-Hua Guan
+            </p>
+            <p class="paper-venue"><em>CVPR</em>, 2024 &nbsp;·&nbsp; <em>TPAMI</em>, 2025</p>
+            <p class="paper-links">
+              <a href="https://arxiv.org/pdf/2311.18482.pdf">Paper</a> /
+              <a href="https://buaavrcg.github.io/LEGaussians/">Project Page</a> /
+              <a href="https://github.com/Chuan-10/LEGaussians">Code</a>
+            </p>
+          </div>
+        </div>
+        <script type="text/javascript">
+          function legaussian_start() { document.getElementById('legaussian_image').style.opacity = "1"; }
+          function legaussian_stop()  { document.getElementById('legaussian_image').style.opacity = "0"; }
+          legaussian_stop();
+        </script>
 
-              <tr onmouseout="comment_stop()" onmouseover="comment_start()">
-                <td style="padding:20px;width:35%;vertical-align:middle;text-align:middle">
-                  <div class="one" style="display: flex; align-items: center; justify-content: center; height: 100%;">
-                    <div class="two" id='comment_image'><video  width="100%" muted autoplay loop>
-                    <source src="img/comment.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='img/comment1.png' width="100%">
-                  </div>
-                  <script type="text/javascript">
-                    function comment_start() {
-                      document.getElementById('comment_image').style.opacity = "1";
-                    }
-                    function comment_stop() {
-                      document.getElementById('comment_image').style.opacity = "0";
-                    }
-                    comment_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:65%;vertical-align:middle">
-                    <papertitle>Bullet Comments for 360° Video</papertitle>
-                  <br>
-                  Yi-Jun Li,
-                  <strong>Jin-Chuan Shi</strong>,
-                  <a href="https://fanglue.github.io/">Fang-Lue Zhang</a>,
-                  <a href="http://miaowang.me/">Miao Wang</a>
-                  <br>
-                  <p></p>
-                  <em>IEEE VR, 2022</em>
-                  <br>
-                  <a href="https://ieeexplore.ieee.org/abstract/document/9756782">Paper</a>
-                  <p align="justify">
-                    We explore bullet comment display and insertion in 360° video using head-mounted displays and controllers, evaluating various methods and discussing design insights.
-                  </p>
-                </td>
-              </tr>
+        <!-- BakedAvatar -->
+        <div class="paper" onmouseout="bakedavatar_stop()" onmouseover="bakedavatar_start()">
+          <div class="paper-thumb">
+            <div class="one">
+              <div class="two" id="bakedavatar_image">
+                <video width="100%" muted autoplay loop>
+                  <source src="img/bakedavatar_none.mp4" type="video/mp4">
+                </video>
+              </div>
+              <img src="img/bakedavatar.png" alt="BakedAvatar">
+            </div>
+          </div>
+          <div class="paper-meta">
+            <p class="paper-title">BakedAvatar: Baking Neural Fields for Real-Time Head Avatar Synthesis</p>
+            <p class="paper-authors">
+              Hao-Bin Duan,
+              <a href="http://miaowang.me/">Miao Wang</a>,
+              <strong>Jin-Chuan Shi</strong>,
+              Xu-Chuan Chen,
+              <a href="https://yanpei.me/">Yan-Pei Cao</a>
+            </p>
+            <p class="paper-venue"><em>ACM Transactions on Graphics (SIGGRAPH Asia)</em>, 2023</p>
+            <p class="paper-links">
+              <a href="https://arxiv.org/abs/2311.05521">Paper</a> /
+              <a href="https://buaavrcg.github.io/BakedAvatar/">Project Page</a> /
+              <a href="https://github.com/buaavrcg/BakedAvatar">Code</a>
+            </p>
+          </div>
+        </div>
+        <script type="text/javascript">
+          function bakedavatar_start() { document.getElementById('bakedavatar_image').style.opacity = "1"; }
+          function bakedavatar_stop()  { document.getElementById('bakedavatar_image').style.opacity = "0"; }
+          bakedavatar_stop();
+        </script>
 
-              <tr onmouseout="selection_stop()" onmouseover="selection_start()">
-                <td style="padding:20px;width:35%;vertical-align:middle;text-align:middle">
-                  <div class="one" style="display: flex; align-items: center; justify-content: center; height: 100%;">
-                    <div class="two" id='selection_image'><video  width="100%" muted autoplay loop>
-                    <source src="img/selection.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='img/selection.png' width="100%">
-                  </div>
-                  <script type="text/javascript">
-                    function selection_start() {
-                      document.getElementById('selection_image').style.opacity = "1";
-                    }
-                    function selection_stop() {
-                      document.getElementById('selection_image').style.opacity = "0";
-                    }
-                    selection_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:65%;vertical-align:middle">
-                    <papertitle>Scene-Context-Aware Indoor Object Selection and Movement in VR</papertitle>
-                  <br>
-                  <a href="http://miaowang.me/">Miao Wang</a>,
-                  Ziming Ye,
-                  <strong>Jin-Chuan Shi</strong>,
-                  <a href="https://www.yongliangyang.net/">Yong-Liang Yang</a>
-                  <br>
-                  <p></p>
-                  <em>IEEE VR, 2021</em>
-                  <br>
-                  <a href="https://ieeexplore.ieee.org/document/9417774">Paper</a>
-                  <p align="justify">
-                    We present an intelligent VR interior design tool that enhances object selection and movement by considering scene context, leading to improved user experience, as validated through various interaction modes and user studies.
-                  </p>
-                </td>
-              </tr>
+      </div>
+      </div><!-- /tab-selected -->
 
-            </tbody>
-          </table>
+      <!-- All Publications panel -->
+      <div id="tab-all" style="display:none">
+      <ul class="pub-list">
 
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:0px;width:100%;vertical-align:middle">
-                  <heading>Services</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="width:100%;vertical-align:middle">
-                  <p>
-                    <li>Conference Reviewer: NeurIPS, SIGGRAPH Asia</li>
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          
-          
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:0px;width:100%;vertical-align:middle">
-                  <heading>Honors and Awards</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="width:100%;vertical-align:middle">
-                  <p>
-                    <li>National Scholarship awarded by the China Ministry of Education, 2024</li>
-                    <li>Outstanding Graduates of Beijing's Higher Education Institutions, 2022</li>
-                    <li>Freshman Academic Scholarship (Special Prize), Beihang University, 2018</li>
-                  </p>
-                  <details>
-                    <summary>Others</summary>
-                    <p>
-                      <li>Outstanding Graduate Student, Beihang University, 2024</li>
-                      <li>Freshman Academic Scholarship, Beihang University, 2022</li>
-                      <li>Outstanding Academic Scholarship, Beihang University, 2019, 2020, 2021, 2023</li>
-                      <li>Outstanding Student Leader Award, Beihang University, 2019, 2020, 2021</li>
-                      <li>Outstanding Social Work Scholarship, Beihang University, 2019, 2020, 2021</li>
-                    </p>
-                  </details>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <li class="pub-item">
+          <p class="pub-title">AoE: Always-on Egocentric Human Video Collection for Embodied AI</p>
+          <p class="pub-authors">Bowen Yang, Zishuo Li, Yang Sun, Changtao Miao, Yifan Yang, Man Luo, Xiaotong Yan, Feng Jiang, <strong>Jin-Chuan Shi</strong>, Yankai Fu, Ning Chen, Junkai Zhao, Pengwei Wang, Guocai Yao, Shanghang Zhang, Hao Chen, Zhe Li, Kai Zhu</p>
+          <p class="pub-venue"><em>arXiv</em>, 2026 &nbsp;·&nbsp; <a href="https://arxiv.org/abs/2602.23893">Paper</a></p>
+        </li>
 
-          <!-- 3 Ending -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:0px">
-                  <br>
-                  <p style="text-align:right;font-size:small;">
-                    Last updated: Aug. 2025
-                    <br>
-                    Web page design credit to <a href="https://jonbarron.info" style="font-size: 14px">Jon Barron</a>
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <li class="pub-item">
+          <p class="pub-title">Mono4DEditor: Text-Driven 4D Scene Editing from Monocular Video via Point-Level Localization of Language-Embedded Gaussians</p>
+          <p class="pub-authors"><strong>Jin-Chuan Shi</strong>, Chengye Su, Jiajun Wang, <a href="https://faculty.runi.ac.il/arik/site/index.asp">Ariel Shamir</a>, <a href="http://miaowang.me/">Miao Wang</a></p>
+          <p class="pub-venue"><em>arXiv</em>, 2025 &nbsp;·&nbsp; <a href="https://arxiv.org/abs/2510.09438v1">Paper</a></p>
+        </li>
 
-        </td>
-      </tr>
-	</tbody>
-  </table>
+        <li class="pub-item">
+          <p class="pub-title">LEGaussians: Language Embedded 3D Gaussians for Open-Vocabulary Scene Understanding</p>
+          <p class="pub-authors"><strong>Jin-Chuan Shi</strong>, <a href="http://miaowang.me/">Miao Wang</a>, Hao-Bin Duan, Shao-Hua Guan</p>
+          <p class="pub-venue"><em>CVPR</em>, 2024 &nbsp;·&nbsp; <em>TPAMI</em>, 2025 &nbsp;·&nbsp; <a href="https://arxiv.org/pdf/2311.18482.pdf">Paper</a> / <a href="https://buaavrcg.github.io/LEGaussians/">Project Page</a> / <a href="https://github.com/Chuan-10/LEGaussians">Code</a></p>
+        </li>
+
+        <li class="pub-item">
+          <p class="pub-title">BakedAvatar: Baking Neural Fields for Real-Time Head Avatar Synthesis</p>
+          <p class="pub-authors">Hao-Bin Duan, <a href="http://miaowang.me/">Miao Wang</a>, <strong>Jin-Chuan Shi</strong>, Xu-Chuan Chen, <a href="https://yanpei.me/">Yan-Pei Cao</a></p>
+          <p class="pub-venue"><em>ACM Transactions on Graphics (SIGGRAPH Asia)</em>, 2023 &nbsp;·&nbsp; <a href="https://arxiv.org/abs/2311.05521">Paper</a> / <a href="https://buaavrcg.github.io/BakedAvatar/">Project Page</a> / <a href="https://github.com/buaavrcg/BakedAvatar">Code</a></p>
+        </li>
+
+        <li class="pub-item">
+          <p class="pub-title">SceneFusion: Room-Scale Environmental Fusion for Efficient Traveling Between Separate Virtual Environments</p>
+          <p class="pub-authors"><a href="http://miaowang.me/">Miao Wang</a>, Yi-Jun Li, <strong>Jin-Chuan Shi</strong>, <a href="https://www.inf.uni-hamburg.de/en/inst/ab/hci/people/steinicke.html">Frank Steinicke</a></p>
+          <p class="pub-venue"><em>IEEE Transactions on Visualization and Computer Graphics</em>, 2023 &nbsp;·&nbsp; <a href="https://ieeexplore.ieee.org/document/10113740">Paper</a></p>
+        </li>
+
+        <li class="pub-item">
+          <p class="pub-title">Bullet Comments for 360° Video</p>
+          <p class="pub-authors">Yi-Jun Li, <strong>Jin-Chuan Shi</strong>, <a href="https://fanglue.github.io/">Fang-Lue Zhang</a>, <a href="http://miaowang.me/">Miao Wang</a></p>
+          <p class="pub-venue"><em>IEEE VR</em>, 2022 &nbsp;·&nbsp; <a href="https://ieeexplore.ieee.org/abstract/document/9756782">Paper</a></p>
+        </li>
+
+        <li class="pub-item">
+          <p class="pub-title">Scene-Context-Aware Indoor Object Selection and Movement in VR</p>
+          <p class="pub-authors"><a href="http://miaowang.me/">Miao Wang</a>, Ziming Ye, <strong>Jin-Chuan Shi</strong>, <a href="https://www.yongliangyang.net/">Yong-Liang Yang</a></p>
+          <p class="pub-venue"><em>IEEE VR</em>, 2021 &nbsp;·&nbsp; <a href="https://ieeexplore.ieee.org/document/9417774">Paper</a></p>
+        </li>
+
+      </ul>
+      </div><!-- /tab-all -->
+
+    </section>
+
+    <script type="text/javascript">
+      function showResearchTab(tab) {
+        document.getElementById('tab-selected').style.display = tab === 'selected' ? '' : 'none';
+        document.getElementById('tab-all').style.display     = tab === 'all'      ? '' : 'none';
+        document.querySelectorAll('.tab-btn').forEach(function(btn, i) {
+          btn.classList.toggle('active', (tab === 'selected' && i === 0) || (tab === 'all' && i === 1));
+        });
+      }
+    </script>
+
+    <!-- ③ HONORS AND AWARDS -->
+    <section id="honors">
+      <h2 class="section-heading">Honors and Awards</h2>
+      <ul class="simple-list">
+        <li>National Scholarship awarded by the China Ministry of Education, 2024</li>
+        <li>Outstanding Graduates of Beijing's Higher Education Institutions, 2022</li>
+        <li>Freshman Academic Scholarship (Special Prize), Beihang University, 2018</li>
+      </ul>
+      <details>
+        <summary>More awards</summary>
+        <ul class="simple-list details-list">
+          <li>Outstanding Graduate Student, Beihang University, 2024</li>
+          <li>Freshman Academic Scholarship, Beihang University, 2022</li>
+          <li>Outstanding Academic Scholarship, Beihang University, 2019, 2020, 2021, 2023</li>
+          <li>Outstanding Student Leader Award, Beihang University, 2019, 2020, 2021</li>
+          <li>Outstanding Social Work Scholarship, Beihang University, 2019, 2020, 2021</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- ⑤ SERVICES -->
+    <section id="services">
+      <h2 class="section-heading">Services</h2>
+      <ul class="simple-list">
+        <li>Reviewer: NeurIPS, SIGGRAPH Asia, PG, ISMAR</li>
+      </ul>
+    </section>
+
+    <!-- ⑥ FOOTER -->
+    <footer>
+      <p>
+        Last updated: Mar. 2026 &nbsp;·&nbsp;
+        Web page design credit to <a href="https://jonbarron.info">Jon Barron</a>
+      </p>
+    </footer>
+
+  </div>
 </body>
 
 </html>
