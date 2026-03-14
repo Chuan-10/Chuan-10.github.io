@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Blog · Jin-Chuan Shi</title>
+  <meta name="author" content="Jin-Chuan Shi">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="blog.css">
+  <link rel="icon" href="../img/jinchuan.jpg">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="../index.html" class="site-title">Jin-Chuan Shi</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+          <!-- sun icon (shown in light mode) -->
+          <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <!-- moon icon (shown in dark mode) -->
+          <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="header-nav">
+        <a href="../index.html">Home</a>
+        <a href="index.html" class="active">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="page-header">
+      <h1 class="page-title">Blog</h1>
+      <p class="page-desc">Notes on research, coding, and things I find interesting.</p>
+    </div>
+
+    <div class="post-list">
+
+      <!-- Example post entry — duplicate this block for each post -->
+      <article class="post-entry">
+        <header class="entry-header">
+          <h2 class="entry-title">
+            <a href="posts/hello-world.html">Hello World</a>
+          </h2>
+        </header>
+        <div class="entry-content">
+          <p>This is the first post on my blog. More posts coming soon.</p>
+        </div>
+        <footer class="entry-footer">
+          <span class="entry-date">March 14, 2026</span>
+          <a href="posts/hello-world.html" class="read-more">Read More →</a>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 Jin-Chuan Shi</span>
+    <span class="footer-sep">·</span>
+    <a href="../index.html">Back to Homepage</a>
+    <span class="footer-sep">·</span>
+    <span>Powered by <a href="https://github.com/adityatelange/hugo-PaperMod" target="_blank" rel="noopener">Hugo PaperMod</a></span>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('themeToggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    const html = document.documentElement;
+
+    function setDark(dark) {
+      if (dark) {
+        html.setAttribute('data-theme', 'dark');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = '';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.removeAttribute('data-theme');
+        sunIcon.style.display = '';
+        moonIcon.style.display = 'none';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Load saved preference
+    setDark(localStorage.getItem('theme') === 'dark');
+
+    btn.addEventListener('click', () => {
+      setDark(html.getAttribute('data-theme') !== 'dark');
+    });
+  </script>
+
+</body>
+</html>

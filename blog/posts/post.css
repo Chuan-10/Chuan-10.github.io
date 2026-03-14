@@ -1,0 +1,117 @@
+/* ── POST PAGE ── */
+.post {
+  max-width: 100%;
+}
+
+.post-header {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.post-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* ── POST CONTENT ── */
+.post-content {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.post-content p { margin-bottom: 20px; }
+
+.post-content h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 36px 0 14px;
+}
+
+.post-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 28px 0 10px;
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 22px;
+  margin-bottom: 20px;
+}
+
+.post-content li { margin-bottom: 6px; }
+
+.post-content a {
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+}
+
+.post-content a:hover {
+  color: var(--text-muted);
+  border-color: var(--text-muted);
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 18px;
+  color: var(--text-muted);
+  margin: 24px 0;
+  font-style: italic;
+}
+
+.post-content code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 13.5px;
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.post-content pre {
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 18px 20px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 13.5px;
+}
+
+/* ── POST FOOTER ── */
+.post-footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.post-footer a {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.post-footer a:hover { color: var(--text); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .post-title { font-size: 1.5rem; }
+}
