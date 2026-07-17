@@ -1,107 +1,49 @@
 %==============================================================================
 %  Jin-Chuan Shi — Curriculum Vitae
-%  Self-contained academic CV in the spirit of Awesome-CV (posquit0).
-%  Compile with:  xelatex cv.tex
-%  Fonts (Source Sans Pro / Roboto) and fontawesome5 ship with TeX Live and are
-%  resolved by filename through kpathsea, so no external download is required.
+%  Classic serif academic CV (matching the style of the Word/visa CV):
+%  Times text, centered small-caps name, small-caps section headings with a
+%  full-width rule, bold title / bold location rows, numbered publications.
+%  Compile with:  pdflatex cv.tex   (all packages ship with TeX Live)
 %==============================================================================
 \documentclass[11pt,a4paper]{article}
 
 %------------------------------------------------------------------------------
 %  Packages
 %------------------------------------------------------------------------------
-\usepackage[left=1.9cm,right=1.9cm,top=1.6cm,bottom=1.8cm,footskip=.5cm]{geometry}
-\usepackage{fontspec}
-\usepackage{fontawesome5}
-\usepackage{xcolor}
+\usepackage[left=1.9cm,right=1.9cm,top=1.7cm,bottom=1.8cm,footskip=1.2em]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}     % Times
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage{tabularx}
-\usepackage{array}
 \usepackage{setspace}
 \usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
 
-%------------------------------------------------------------------------------
-%  Colors  (restrained academic palette)
-%------------------------------------------------------------------------------
-\definecolor{ink}{HTML}{2B2B2B}       % body / titles
-\definecolor{graytext}{HTML}{6F6F6F}  % subtitles, secondary
-\definecolor{accent}{HTML}{9E1B32}    % section rules, locations, links
-
-\color{ink}
+\setlength{\parindent}{0pt}
+\linespread{1.03}
 
 %------------------------------------------------------------------------------
-%  Fonts  (resolved from TeX Live by filename — portable across installs)
-%------------------------------------------------------------------------------
-\defaultfontfeatures{Ligatures=TeX}
-\setmainfont{SourceSansPro}[
-  Extension    = .otf,
-  UprightFont  = *-Regular,
-  ItalicFont   = *-RegularIt,
-  BoldFont     = *-Semibold,
-  BoldItalicFont = *-SemiboldIt,
-]
-\newfontfamily\headingfont{Roboto}[
-  Extension   = .otf,
-  UprightFont = *-Regular,
-  BoldFont    = *-Bold,
-  ItalicFont  = *-Italic,
-]
-\newfontfamily\namefont{Roboto}[
-  Extension   = .otf,
-  UprightFont = *-Light,
-  BoldFont    = *-Medium,
-]
-\newfontfamily\lightfont{Roboto}[
-  Extension   = .otf,
-  UprightFont = *-Light,
-]
-
-%------------------------------------------------------------------------------
-%  Section headings — bold heading + full-width rule (Awesome-CV flavour)
+%  Section headings — small-caps heading + full-width rule
 %------------------------------------------------------------------------------
 \titleformat{\section}
-  {\headingfont\Large\bfseries\color{ink}}
+  {\normalsize\scshape\bfseries}
   {}{0em}
   {}
-  [\vspace{-0.15em}{\color{accent}\titlerule[1.2pt]}]
-\titlespacing*{\section}{0pt}{1.25em}{0.7em}
+  [\vspace{-0.55em}\rule{\linewidth}{0.7pt}]
+\titlespacing*{\section}{0pt}{1.15em}{0.45em}
 
-\setlength{\parindent}{0pt}
-\setlist[itemize]{leftmargin=1.15em,itemsep=1pt,topsep=2pt,parsep=0pt}
-\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
+\setlist[itemize]{leftmargin=1.35em,itemsep=0pt,topsep=1pt,parsep=0pt,label=$\bullet$}
 
 %------------------------------------------------------------------------------
 %  Helper macros
 %------------------------------------------------------------------------------
-% Two-line, two-column entry: title/subtitle on the left, place/date on the right
-\newcommand{\cventry}[4]{%
-  \noindent\begin{tabularx}{\linewidth}{@{}X r@{}}
-    {\bfseries #1} & {\color{accent}\itshape #3}\\[1pt]
-    {\color{graytext} #2} & {\color{graytext}\itshape #4}\\
-  \end{tabularx}%
-  \vspace{2pt}
+% Entry: bold title (left) / bold place (right); roman subtitle (left) / italic date (right)
+\newcommand{\entry}[4]{%
+  \textbf{#1}\hfill\textbf{#2}\par
+  #3\hfill\textit{#4}\par
 }
-
-% Publication item: [key] title . authors . venue
-\newcounter{pub}
-\newcommand{\pub}[3]{%
-  \vspace{4pt}%
-  \noindent\begin{tabularx}{\linewidth}{@{}p{1.9em}@{}X@{}}
-    {\color{graytext}[\refstepcounter{pub}\thepub]} &
-    {#1\par\vspace{1pt}{\color{graytext}\small #2}\par\vspace{1pt}{\itshape\small #3}}\\
-  \end{tabularx}%
-}
-\newcommand{\me}[0]{\textbf{Jin-Chuan Shi}}
-\newcommand{\eq}[0]{\textsuperscript{*}}
-
-% one-line labelled row (skills / service)
-\newcommand{\labelrow}[2]{%
-  \noindent\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{5.2em}@{\hspace{0.6em}}X@{}}
-    #1 & #2\\
-  \end{tabularx}\vspace{2pt}
-}
+\newcommand{\me}{\textbf{Jin-Chuan Shi}}
+\newcommand{\eq}{\textsuperscript{*}}
 
 %------------------------------------------------------------------------------
 %  Footer
@@ -109,7 +51,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
-\fancyfoot[C]{\lightfont\footnotesize\color{graytext} Jin-Chuan Shi \quad$\cdot$\quad Curriculum Vitae \quad$\cdot$\quad \thepage}
+\fancyfoot[C]{\footnotesize Jin-Chuan Shi \quad$\cdot$\quad Curriculum Vitae \quad$\cdot$\quad \thepage}
 
 %==============================================================================
 \begin{document}
@@ -118,32 +60,26 @@
 %  Header
 %------------------------------------------------------------------------------
 \begin{center}
-  {\namefont\fontsize{30}{34}\selectfont Jin-Chuan Shi}\\[6pt]
-  {\color{graytext}\small
-    \faEnvelope\ \href{mailto:jinchuanshi@zju.edu.cn}{jinchuanshi@zju.edu.cn}
-    \quad\textbullet\quad
-    \faMobile*\ (+86) 178-1211-2365
-    \quad\textbullet\quad
-    \faGlobe\ \href{https://chuan-10.github.io}{chuan-10.github.io}
-    \\[3pt]
-    \faGithub\ \href{https://github.com/Chuan-10}{Chuan-10}
-    \quad\textbullet\quad
-    \faGraduationCap\ \href{https://scholar.google.com/citations?user=N1Imm0oAAAAJ}{Google Scholar}
-  }
+  {\LARGE\scshape\bfseries Jin-Chuan Shi}\\[4pt]
+  {\normalsize
+    \href{mailto:jinchuanshi@zju.edu.cn}{jinchuanshi@zju.edu.cn} \ $|$ \
+    (+86) 178-1211-2365 \ $|$ \
+    \href{https://chuan-10.github.io}{chuan-10.github.io} \ $|$ \
+    \href{https://github.com/Chuan-10}{github.com/Chuan-10}}
 \end{center}
-\vspace{0.4em}
+\vspace{0.2em}
 
 %------------------------------------------------------------------------------
 %  Research Interests
 %------------------------------------------------------------------------------
 \section{Research Interests}
-My research lies at the intersection of \textbf{3D reconstruction}, \textbf{dexterous manipulation},
-and \textbf{large-scale machine learning}. I work on reconstructing hand--object interaction from
-in-the-wild video and retargeting it into physically consistent simulation, turning Internet-scale
-human videos into robot-usable manipulation data for general-purpose dexterous manipulation.
+My research lies at the intersection of 3D reconstruction, dexterous manipulation, and large-scale
+machine learning. I work on reconstructing hand--object interaction from in-the-wild video and
+retargeting it into physically consistent simulation, turning Internet-scale human videos into
+robot-usable manipulation data for general-purpose dexterous manipulation.
 
-\vspace{4pt}
-\noindent\textbf{Core research question:} How can we build \emph{scalable, efficient, and robust}
+\smallskip
+\noindent\textbf{Core research question:} How can we build scalable, efficient, and robust
 reconstruction-and-retargeting systems that transform massive Internet videos into high-quality
 manipulation data --- and, on top of such data, scalable robot learning systems that unify
 perception and dexterous manipulation, enabling reliable general-purpose robots in unstructured,
@@ -153,72 +89,81 @@ real-world environments?
 %  Education
 %------------------------------------------------------------------------------
 \section{Education}
-\cventry{Zhejiang University \normalfont— College of Computer Science and Technology}
-        {Ph.D. in Computer Science and Technology \quad\textbullet\quad Advisors: Prof.\ Chunhua Shen, Prof.\ Hao Chen}
-        {Hangzhou, China}
-        {Sept.\ 2025 -- Mar.\ 2029 (expected)}
+\entry{College of Computer Science and Technology, Zhejiang University}{Hangzhou, China}
+      {Ph.D. in Computer Science and Technology}{Sept. 2025 -- Mar. 2029 (expected)}
+\begin{itemize}
+  \item Advisors: Prof. Chunhua Shen, Prof. Hao Chen
+\end{itemize}
+\smallskip
 
-\cventry{Beihang University \normalfont— School of Computer Science and Engineering}
-        {M.Eng.\ in Computer Science and Technology \quad\textbullet\quad GPA 3.80/4.00 \quad\textbullet\quad Advisors: Prof.\ Shi-Min Hu (Tsinghua), Prof.\ Miao Wang}
-        {Beijing, China}
-        {Sept.\ 2022 -- Jan.\ 2025}
+\entry{School of Computer Science and Engineering, Beihang University}{Beijing, China}
+      {M.Eng. in Computer Science and Technology}{Sept. 2022 -- Jan. 2025}
+\begin{itemize}
+  \item GPA: 3.80/4.00, Average Score: 90.3/100
+  \item Advisors: Prof. Shi-Min Hu (Tsinghua University), Prof. Miao Wang
+\end{itemize}
+\smallskip
 
-\cventry{Beihang University \normalfont— Shen Yuan Honors College}
-        {B.Eng.\ in Computer Science and Technology \quad\textbullet\quad GPA 3.73/4.00 \quad\textbullet\quad Advisor: Prof.\ Miao Wang}
-        {Beijing, China}
-        {Sept.\ 2018 -- June 2022}
+\entry{Shen Yuan Honors College, Beihang University}{Beijing, China}
+      {B.Eng. in Computer Science and Technology}{Sept. 2018 -- June 2022}
+\begin{itemize}
+  \item GPA: 3.73/4.00, Average Score: 90.6/100
+  \item Advisor: Prof. Miao Wang
+\end{itemize}
 
 %------------------------------------------------------------------------------
 %  Publications
 %------------------------------------------------------------------------------
 \section{Publications}
-{\small\color{graytext} \textsuperscript{*}\,Equal contribution. Author of this CV in \textbf{bold}.}
-\vspace{1pt}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.2em,labelsep=0.4em,itemsep=4pt,topsep=3pt]
+  \item Chenhao Bai, Liqin Lu, Kaijun Wang, Hui Chen, \me, Yuyang Liu, Hao Chen, Chunhua Shen.
+        HORIZON: Recoverability-Governed Curriculum for Physical-Domain Scaling.
+        \textit{arXiv preprint}. 2026.
 
-\pub{HORIZON: Recoverability-Governed Curriculum for Physical-Domain Scaling.}
-    {Chenhao Bai, Liqin Lu, Kaijun Wang, Hui Chen, \me, Yuyang Liu, Hao Chen, Chunhua Shen.}
-    {arXiv preprint, 2026.}
+  \item Weijie Wang\eq, Zimu Li\eq, \me, Zeyu Zhang, Botao Ye, Marc Pollefeys, Donny Y. Chen, Bohan Zhuang.
+        TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction.
+        \textit{arXiv preprint}. 2026. (\textsuperscript{*}Equal contribution)
 
-\pub{TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction.}
-    {Weijie Wang\eq, Zimu Li\eq, \me, Zeyu Zhang, Botao Ye, Marc Pollefeys, Donny Y.\ Chen, Bohan Zhuang.}
-    {arXiv preprint, 2026.}
+  \item \me\eq, Binhong Ye\eq, Tao Liu, Xiaoyang Liu, Yangjinhui Xu, Junzhe He, Zeju Li, Hao Chen, Chunhua Shen.
+        AGILE: Hand-Object Interaction Reconstruction from Video via Agentic Generation.
+        \textit{ACM SIGGRAPH (Conference Track)}. 2026. (\textsuperscript{*}Equal contribution)
 
-\pub{AGILE: Hand-Object Interaction Reconstruction from Video via Agentic Generation.}
-    {\me\eq, Binhong Ye\eq, Tao Liu, Xiaoyang Liu, Yangjinhui Xu, Junzhe He, Zeju Li, Hao Chen, Chunhua Shen.}
-    {ACM SIGGRAPH (Conference Track), 2026.}
+  \item Bowen Yang, Zishuo Li, Yang Sun, Changtao Miao, Yifan Yang, Man Luo, Xiaotong Yan, Feng Jiang, \me,
+        Yankai Fu, Ning Chen, Junkai Zhao, Pengwei Wang, Guocai Yao, Shanghang Zhang, Hao Chen, Zhe Li, Kai Zhu.
+        AoE: Always-on Egocentric Human Video Collection for Embodied AI.
+        \textit{CVPR Workshop on Embodied AI in the Era of Large Models}. 2026.
 
-\pub{AoE: Always-on Egocentric Human Video Collection for Embodied AI.}
-    {Bowen Yang, Zishuo Li, Yang Sun, Changtao Miao, Yifan Yang, Man Luo, Xiaotong Yan, Feng Jiang, \me, Yankai Fu, Ning Chen, Junkai Zhao, Pengwei Wang, Guocai Yao, Shanghang Zhang, Hao Chen, Zhe Li, Kai Zhu.}
-    {CVPR Workshop on Embodied AI in the Era of Large Models, 2026.}
+  \item \me\eq, Chengye Su\eq, Jiajun Wang, Ariel Shamir, Miao Wang.
+        Mono4DEditor: Text-Driven 4D Scene Editing from Monocular Video via Point-Level Localization
+        of Language-Embedded Gaussians.
+        \textit{arXiv preprint}. 2025. (\textsuperscript{*}Equal contribution)
 
-\pub{Mono4DEditor: Text-Driven 4D Scene Editing from Monocular Video via Point-Level Localization of Language-Embedded Gaussians.}
-    {\me\eq, Chengye Su\eq, Jiajun Wang, Ariel Shamir, Miao Wang.}
-    {arXiv preprint, 2025.}
+  \item \me, Miao Wang, Hao-Bin Duan, Shao-Hua Guan.
+        LEGaussians: Language Embedded 3D Gaussians for Open-Vocabulary Scene Understanding.
+        \textit{IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}. 2024.
+        \textit{IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)}. 2025.
 
-\pub{LEGaussians: Language Embedded 3D Gaussians for Open-Vocabulary Scene Understanding.}
-    {\me, Miao Wang, Hao-Bin Duan, Shao-Hua Guan.}
-    {IEEE/CVF Conf.\ on Computer Vision and Pattern Recognition (CVPR), 2024. \quad IEEE Trans.\ on Pattern Analysis and Machine Intelligence (TPAMI), 2025.}
+  \item Hao-Bin Duan, Miao Wang, \me, Xu-Chuan Chen, Yan-Pei Cao.
+        BakedAvatar: Baking Neural Fields for Real-Time Head Avatar Synthesis.
+        \textit{ACM Transactions on Graphics (Proceedings of SIGGRAPH Asia)}. 2023.
 
-\pub{BakedAvatar: Baking Neural Fields for Real-Time Head Avatar Synthesis.}
-    {Hao-Bin Duan, Miao Wang, \me, Xu-Chuan Chen, Yan-Pei Cao.}
-    {ACM Trans.\ on Graphics (Proc.\ SIGGRAPH Asia), 2023.}
+  \item Miao Wang, Yi-Jun Li, \me, Frank Steinicke.
+        SceneFusion: Room-Scale Environmental Fusion for Efficient Traveling Between Separate Virtual Environments.
+        \textit{IEEE Transactions on Visualization and Computer Graphics (TVCG)}. 2023.
 
-\pub{SceneFusion: Room-Scale Environmental Fusion for Efficient Traveling Between Separate Virtual Environments.}
-    {Miao Wang, Yi-Jun Li, \me, Frank Steinicke.}
-    {IEEE Trans.\ on Visualization and Computer Graphics (TVCG), 2023.}
+  \item Yi-Jun Li, \me, Fang-Lue Zhang, Miao Wang.
+        Bullet Comments for 360$^\circ$ Video.
+        \textit{IEEE Conference on Virtual Reality and 3D User Interfaces (VR)}. 2022.
 
-\pub{Bullet Comments for 360$^\circ$ Video.}
-    {Yi-Jun Li, \me, Fang-Lue Zhang, Miao Wang.}
-    {IEEE Conf.\ on Virtual Reality and 3D User Interfaces (VR), 2022.}
-
-\pub{Scene-Context-Aware Indoor Object Selection and Movement in VR.}
-    {Miao Wang, Ziming Ye, \me, Yong-Liang Yang.}
-    {IEEE Conf.\ on Virtual Reality and 3D User Interfaces (VR), 2021.}
+  \item Miao Wang, Ziming Ye, \me, Yong-Liang Yang.
+        Scene-Context-Aware Indoor Object Selection and Movement in VR.
+        \textit{IEEE Conference on Virtual Reality and 3D User Interfaces (VR)}. 2021.
+\end{enumerate}
 
 %------------------------------------------------------------------------------
 %  Honors and Awards
 %------------------------------------------------------------------------------
-\section{Honors \& Awards}
+\section{Honors and Awards}
 \begin{itemize}
   \item National Scholarship, China Ministry of Education, 2024
   \item Outstanding Graduate Student, Beihang University, 2024
@@ -229,18 +174,17 @@ real-world environments?
 \end{itemize}
 
 %------------------------------------------------------------------------------
-%  Academic Service
+%  Service
 %------------------------------------------------------------------------------
-\section{Academic Service}
-\labelrow{Reviewer}{ACM SIGGRAPH (Asia), Pacific Graphics (PG), IEEE ISMAR, NeurIPS}
+\section{Service}
+\textbf{Reviewer:} ACM SIGGRAPH (Asia), Pacific Graphics (PG), IEEE ISMAR, NeurIPS
 
 %------------------------------------------------------------------------------
 %  Skills
 %------------------------------------------------------------------------------
 \section{Skills}
-\labelrow{Languages}{Python, C, C++, CUDA, C\#, Java, JavaScript, LaTeX}
-\labelrow{Tools}{PyTorch, Unity3D, Linux, Git}
-\labelrow{Domains}{3D Reconstruction, Neural Rendering, Gaussian Splatting, Hand-Object Interaction, Dexterous Manipulation, VR/AR}
-\labelrow{Spoken}{English (fluent, CET-4 \& CET-6), Mandarin (native)}
+\textbf{Programming:} Python, PyTorch, C, C++, CUDA, C\#, Unity3D, LaTeX, Linux, JavaScript, Java\par
+\textbf{Research areas:} 3D Reconstruction, Neural Rendering, Gaussian Splatting, Hand-Object Interaction, Dexterous Manipulation, VR/AR\par
+\textbf{Languages:} English (fluent, CET-4 \& CET-6), Mandarin (native)
 
 \end{document}
