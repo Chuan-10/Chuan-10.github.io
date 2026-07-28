@@ -10,7 +10,9 @@
 %------------------------------------------------------------------------------
 \usepackage[left=1.5cm,right=1.5cm,top=1.2cm,bottom=1.2cm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage[default]{lato}          % Lato as the default text font
+\usepackage{XCharter}               % Charter serif — for the name & section headings
+\usepackage[default]{lato}          % Lato sans — the default body font
+\usepackage[normalem]{ulem}         % underlined subtitle/date lines (\uline)
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{microtype}
@@ -29,13 +31,13 @@
 % Section: full-caps bold heading + full-width rule
 \newcommand{\cvsection}[1]{%
   \vspace{0.7em}%
-  {\large\bfseries\MakeUppercase{#1}}\\[-0.35em]%
-  \rule{\linewidth}{0.8pt}\par\vspace{0.3em}%
+  {\rmfamily\large\bfseries\MakeUppercase{#1}}\\[-0.3em]%
+  \rule{\linewidth}{0.5pt}\par\vspace{0.3em}%
 }
-% Entry: bold title / bold place ; subtitle / date
+% Entry: bold title / bold place ; underlined subtitle / underlined date
 \newcommand{\cventry}[4]{%
-  {\bfseries #1}\hfill{\bfseries #2}\\[0.08em]%
-  #3\hfill #4\par}
+  {\bfseries #1}\hfill{\bfseries #2}\\[0.12em]%
+  \uline{#3}\hfill\uline{#4}\par}
 % Bracketed hyperlink, e.g. [Paper]
 \newcommand{\pl}[2]{[\href{#2}{#1}]}
 \newcommand{\me}{\textbf{Jin-Chuan Shi}}
@@ -47,17 +49,17 @@
 %------------------------------------------------------------------------------
 %  Header
 %------------------------------------------------------------------------------
-{\centering{\Huge\bfseries JIN-CHUAN SHI}\par}
+{\centering{\rmfamily\Huge\bfseries JIN-CHUAN SHI}\par}
 \vspace{0.28em}
-\hrule height 0.8pt
-\vspace{0.3em}
+\hrule height 0.5pt
+\vspace{0.32em}
 {\centering\small
 Hangzhou, China \quad$|$\quad (+86)~178-1211-2365 \quad$|$\quad
 \href{mailto:jinchuanshi@zju.edu.cn}{jinchuanshi@zju.edu.cn} \quad$|$\quad
 \href{https://chuan-10.github.io}{Homepage} \quad$|$\quad
 \href{https://scholar.google.com/citations?user=N1Imm0oAAAAJ}{Google Scholar}\par}
-\vspace{0.3em}
-\hrule height 0.8pt
+\vspace{0.32em}
+\hrule height 0.5pt
 
 %------------------------------------------------------------------------------
 %  Research Interests
@@ -189,6 +191,6 @@ unstructured, real-world environments?
 \cvsection{Skills}
 \textbf{Programming:} Python, PyTorch, C, C++, CUDA, C\#, Unity3D, LaTeX, Linux, JavaScript, Java\\
 \textbf{Research areas:} 3D Reconstruction, Neural Rendering, Gaussian Splatting, Hand-Object Interaction, Dexterous Manipulation, VR/AR\\
-\textbf{Languages:} English (fluent, CET-4 \& CET-6), Mandarin (native)
+\textbf{Languages:} English (fluent, CET-6 \& TOEFL), Mandarin (native)
 
 \end{document}
