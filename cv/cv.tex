@@ -1,59 +1,45 @@
 %==============================================================================
 %  Jin-Chuan Shi — Curriculum Vitae
-%  Classic serif academic CV (matching the style of the Word/visa CV):
-%  Times text, centered small-caps name, small-caps section headings with a
-%  full-width rule, bold title / bold location rows, numbered publications.
+%  Clean sans-serif academic CV (Lato), in the style of julietljy.github.io.
 %  Compile with:  pdflatex cv.tex   (all packages ship with TeX Live)
 %==============================================================================
-\documentclass[11pt,a4paper]{article}
+\documentclass[10pt,a4paper]{article}
 
 %------------------------------------------------------------------------------
 %  Packages
 %------------------------------------------------------------------------------
-\usepackage[left=1.9cm,right=1.9cm,top=1.7cm,bottom=1.8cm,footskip=1.2em]{geometry}
+\usepackage[left=1.5cm,right=1.5cm,top=1.2cm,bottom=1.2cm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage{newtxtext,newtxmath}     % Times
-\usepackage{titlesec}
+\usepackage[default]{lato}          % Lato as the default text font
+\usepackage{xcolor}
 \usepackage{enumitem}
-\usepackage{setspace}
-\usepackage{fancyhdr}
+\usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 
+\definecolor{linkblue}{HTML}{2A5DB0}
+\hypersetup{colorlinks=true, urlcolor=linkblue, linkcolor=linkblue}
+
 \setlength{\parindent}{0pt}
-\linespread{1.03}
+\linespread{1.02}
+\setlist[itemize]{leftmargin=1.3em, itemsep=1pt, topsep=1pt, parsep=0pt, label=$\bullet$}
 
 %------------------------------------------------------------------------------
-%  Section headings — small-caps heading + full-width rule
+%  Macros
 %------------------------------------------------------------------------------
-\titleformat{\section}
-  {\normalsize\scshape\bfseries}
-  {}{0em}
-  {}
-  [\vspace{-0.55em}\rule{\linewidth}{0.7pt}]
-\titlespacing*{\section}{0pt}{1.15em}{0.45em}
-
-\setlist[itemize]{leftmargin=1.35em,itemsep=0pt,topsep=1pt,parsep=0pt,label=$\bullet$}
-
-%------------------------------------------------------------------------------
-%  Helper macros
-%------------------------------------------------------------------------------
-% Entry: bold title (left) / bold place (right); roman subtitle (left) / italic date (right)
-\newcommand{\entry}[4]{%
-  \textbf{#1}\hfill\textbf{#2}\par
-  #3\hfill\textit{#4}\par
+% Section: full-caps bold heading + full-width rule
+\newcommand{\cvsection}[1]{%
+  \vspace{0.7em}%
+  {\large\bfseries\MakeUppercase{#1}}\\[-0.35em]%
+  \rule{\linewidth}{0.8pt}\par\vspace{0.3em}%
 }
+% Entry: bold title / bold place ; subtitle / date
+\newcommand{\cventry}[4]{%
+  {\bfseries #1}\hfill{\bfseries #2}\\[0.08em]%
+  #3\hfill #4\par}
+% Bracketed hyperlink, e.g. [Paper]
+\newcommand{\pl}[2]{[\href{#2}{#1}]}
 \newcommand{\me}{\textbf{Jin-Chuan Shi}}
 \newcommand{\eq}{\textsuperscript{*}}
-% Publication subgroup label (small caps, e.g. Preprints / Peer-Reviewed)
-\newcommand{\pubgroup}[1]{\vspace{3pt}{\scshape #1}\vspace{1pt}}
-
-%------------------------------------------------------------------------------
-%  Footer
-%------------------------------------------------------------------------------
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\fancyfoot[C]{\footnotesize Jin-Chuan Shi \quad$\cdot$\quad Curriculum Vitae \quad$\cdot$\quad \thepage}
 
 %==============================================================================
 \begin{document}
@@ -61,27 +47,28 @@
 %------------------------------------------------------------------------------
 %  Header
 %------------------------------------------------------------------------------
-\begin{center}
-  {\LARGE\scshape\bfseries Jin-Chuan Shi}\\[4pt]
-  {\normalsize
-    \href{mailto:jinchuanshi@zju.edu.cn}{jinchuanshi@zju.edu.cn} \ $|$ \
-    (+86) 178-1211-2365 \ $|$ \
-    \href{https://chuan-10.github.io}{chuan-10.github.io} \ $|$ \
-    \href{https://scholar.google.com/citations?user=N1Imm0oAAAAJ}{Google Scholar}}
+\begin{center}{\Huge\bfseries JIN-CHUAN SHI}\end{center}
+\vspace{0.35em}
+\rule{\linewidth}{0.8pt}\\[0.25em]
+\begin{center}\small
+Hangzhou, China \quad$|$\quad (+86)~178-1211-2365 \quad$|$\quad
+\href{mailto:jinchuanshi@zju.edu.cn}{jinchuanshi@zju.edu.cn} \quad$|$\quad
+\href{https://chuan-10.github.io}{Homepage} \quad$|$\quad
+\href{https://scholar.google.com/citations?user=N1Imm0oAAAAJ}{Google Scholar}
 \end{center}
-\vspace{0.2em}
+\vspace{0.15em}\rule{\linewidth}{0.8pt}
 
 %------------------------------------------------------------------------------
 %  Research Interests
 %------------------------------------------------------------------------------
-\section{Research Interests}
+\cvsection{Research Interests}
 My research lies at the intersection of 3D reconstruction, dexterous manipulation, and large-scale
 machine learning. I work on reconstructing hand--object interaction from in-the-wild video and
 retargeting it into physically consistent simulation, turning Internet-scale human videos into
 robot-usable manipulation data for general-purpose dexterous manipulation.
 
-\smallskip
-\noindent\textbf{Core research questions:} (1)~How can we build scalable, efficient, and robust
+\vspace{0.35em}
+\textbf{Core research questions:} (1)~How can we build scalable, efficient, and robust
 reconstruction-and-retargeting systems that turn massive Internet videos into high-quality
 manipulation data? (2)~On top of such data, how can we build scalable robot learning systems that
 unify perception and dexterous manipulation, enabling reliable general-purpose robots in
@@ -90,23 +77,26 @@ unstructured, real-world environments?
 %------------------------------------------------------------------------------
 %  Education
 %------------------------------------------------------------------------------
-\section{Education}
-\entry{College of Computer Science and Technology, Zhejiang University}{Hangzhou, China}
-      {Ph.D. in Computer Science and Technology}{Sept. 2025 -- Mar. 2029 (expected)}
+\cvsection{Education}
+\cventry{Zhejiang University}{Hangzhou, China}
+        {Ph.D. in Computer Science and Technology}
+        {Sept. 2025 -- Mar. 2029 (expected)}
 \begin{itemize}
   \item Advisors: Prof. Chunhua Shen, Prof. Hao Chen
 \end{itemize}
-\smallskip
+\vspace{0.35em}
 
-\entry{School of Computer Science and Engineering, Beihang University}{Beijing, China}
-      {M.Eng. in Computer Science and Technology}{Sept. 2022 -- Jan. 2025}
+\cventry{Beihang University}{Beijing, China}
+        {M.Eng. in Computer Science and Technology}
+        {Sept. 2022 -- Jan. 2025}
 \begin{itemize}
   \item Advisors: Prof. Shi-Min Hu (Tsinghua University), Prof. Miao Wang
 \end{itemize}
-\smallskip
+\vspace{0.35em}
 
-\entry{Shen Yuan Honors College, Beihang University}{Beijing, China}
-      {B.Eng. in Computer Science and Technology}{Sept. 2018 -- June 2022}
+\cventry{Beihang University}{Beijing, China}
+        {B.Eng. in Computer Science and Technology, Shen Yuan Honors College}
+        {Sept. 2018 -- June 2022}
 \begin{itemize}
   \item Advisor: Prof. Miao Wang
 \end{itemize}
@@ -114,84 +104,90 @@ unstructured, real-world environments?
 %------------------------------------------------------------------------------
 %  Publications
 %------------------------------------------------------------------------------
-\section{Publications}
+\cvsection{Publications}
 {\small \textsuperscript{*}\,Equal contribution. Author of this CV in \textbf{bold}.}
 
-\pubgroup{Preprints / Under Review}
-\begin{enumerate}[label={[\arabic*]},leftmargin=2.2em,labelsep=0.4em,itemsep=4pt,topsep=3pt]
-  \item Chenhao Bai, Liqin Lu, Kaijun Wang, Hui Chen, \me, Yuyang Liu, Hao Chen, Chunhua Shen.
-        HORIZON: Recoverability-Governed Curriculum for Physical-Domain Scaling.
-        Under review at \textit{Conference on Robot Learning (CoRL)}, 2026.
+\vspace{0.3em}\textit{Preprints / Under Review}
+\begin{enumerate}[label=\arabic*.,leftmargin=1.9em,labelsep=0.4em,itemsep=3pt,topsep=2pt]
+  \item (\textbf{Under review, CoRL 2026})
+        \textit{HORIZON: Recoverability-Governed Curriculum for Physical-Domain Scaling}.
+        Chenhao Bai, Liqin Lu, Kaijun Wang, Hui Chen, \me, Yuyang Liu, Hao Chen, Chunhua Shen.
 
-  \item Weijie Wang\eq, Zimu Li\eq, \me, Zeyu Zhang, Botao Ye, Marc Pollefeys, Donny Y. Chen, Bohan Zhuang.
-        TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction.
-        Under review at \textit{ACM SIGGRAPH Asia}, 2026.
+  \item (\textbf{Under review, SIGGRAPH Asia 2026})
+        \textit{TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction}.
+        Weijie Wang\eq, Zimu Li\eq, \me, Zeyu Zhang, Botao Ye, Marc Pollefeys, Donny Y. Chen, Bohan Zhuang.
+        \pl{Paper}{https://arxiv.org/abs/2605.26115} \pl{Project}{https://lhmd.top/trisplat} \pl{Code}{https://github.com/ziplab/TriSplat}
 
-  \item \me\eq, Chengye Su\eq, Jiajun Wang, Ariel Shamir, Miao Wang.
-        Mono4DEditor: Text-Driven 4D Scene Editing from Monocular Video via Point-Level Localization
-        of Language-Embedded Gaussians.
-        Under review at \textit{Computational Visual Media Journal (CVMJ)}, 2026.
+  \item (\textbf{Under review, CVMJ 2026})
+        \textit{Mono4DEditor: Text-Driven 4D Scene Editing from Monocular Video via Point-Level Localization of Language-Embedded Gaussians}.
+        \me\eq, Chengye Su\eq, Jiajun Wang, Ariel Shamir, Miao Wang.
+        \pl{Paper}{https://arxiv.org/abs/2510.09438}
 \end{enumerate}
 
-\pubgroup{Peer-Reviewed Publications}
-\begin{enumerate}[label={[\arabic*]},leftmargin=2.2em,labelsep=0.4em,itemsep=4pt,topsep=3pt]
-  \item \me\eq, Binhong Ye\eq, Tao Liu, Xiaoyang Liu, Yangjinhui Xu, Junzhe He, Zeju Li, Hao Chen, Chunhua Shen.
-        AGILE: Hand-Object Interaction Reconstruction from Video via Agentic Generation.
-        \textit{ACM SIGGRAPH (Conference Track)}. 2026.
+\vspace{0.3em}\textit{Peer-Reviewed Publications}
+\begin{enumerate}[label=\arabic*.,leftmargin=1.9em,labelsep=0.4em,itemsep=3pt,topsep=2pt]
+  \item (\textbf{SIGGRAPH 2026})
+        \textit{AGILE: Hand-Object Interaction Reconstruction from Video via Agentic Generation}.
+        \me\eq, Binhong Ye\eq, Tao Liu, Xiaoyang Liu, Yangjinhui Xu, Junzhe He, Zeju Li, Hao Chen, Chunhua Shen.
+        \pl{Paper}{https://arxiv.org/abs/2602.04672} \pl{Project}{https://agile-hoi.github.io/} \pl{Code}{https://github.com/Chuan-10/AGILE}
 
-  \item Bowen Yang, Zishuo Li, Yang Sun, Changtao Miao, Yifan Yang, Man Luo, Xiaotong Yan, Feng Jiang, \me,
-        Yankai Fu, Ning Chen, Junkai Zhao, Pengwei Wang, Guocai Yao, Shanghang Zhang, Hao Chen, Zhe Li, Kai Zhu.
-        AoE: Always-on Egocentric Human Video Collection for Embodied AI.
-        \textit{CVPR Workshop on Embodied AI in the Era of Large Models}. 2026.
+  \item (\textbf{CVPR Workshop 2026})
+        \textit{AoE: Always-on Egocentric Human Video Collection for Embodied AI}.
+        Bowen Yang, Zishuo Li, Yang Sun, Changtao Miao, Yifan Yang, Man Luo, Xiaotong Yan, Feng Jiang, \me, Yankai Fu, Ning Chen, Junkai Zhao, Pengwei Wang, Guocai Yao, Shanghang Zhang, Hao Chen, Zhe Li, Kai Zhu.
+        \pl{Paper}{https://arxiv.org/abs/2602.23893}
 
-  \item \me, Miao Wang, Hao-Bin Duan, Shao-Hua Guan.
-        LEGaussians: Language Embedded 3D Gaussians for Open-Vocabulary Scene Understanding.
-        \textit{IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}. 2024.
-        \textit{IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)}. 2025.
-        \textbf{268~citations} (Google Scholar, Jul.\ 2026).
+  \item (\textbf{CVPR 2024 / TPAMI 2025})
+        \textit{LEGaussians: Language Embedded 3D Gaussians for Open-Vocabulary Scene Understanding}.
+        \me, Miao Wang, Hao-Bin Duan, Shao-Hua Guan.
+        \pl{Paper}{https://arxiv.org/abs/2311.18482} \pl{Project}{https://buaavrcg.github.io/LEGaussians/} \pl{Code}{https://github.com/Chuan-10/LEGaussians}
+        \textbf{268 citations} (Google Scholar, Jul. 2026).
 
-  \item Hao-Bin Duan, Miao Wang, \me, Xu-Chuan Chen, Yan-Pei Cao.
-        BakedAvatar: Baking Neural Fields for Real-Time Head Avatar Synthesis.
-        \textit{ACM Transactions on Graphics (Proceedings of SIGGRAPH Asia)}. 2023.
+  \item (\textbf{SIGGRAPH Asia 2023})
+        \textit{BakedAvatar: Baking Neural Fields for Real-Time Head Avatar Synthesis}.
+        Hao-Bin Duan, Miao Wang, \me, Xu-Chuan Chen, Yan-Pei Cao.
+        \pl{Paper}{https://arxiv.org/abs/2311.05521} \pl{Project}{https://buaavrcg.github.io/BakedAvatar/} \pl{Code}{https://github.com/buaavrcg/BakedAvatar}
 
-  \item Miao Wang, Yi-Jun Li, \me, Frank Steinicke.
-        SceneFusion: Room-Scale Environmental Fusion for Efficient Traveling Between Separate Virtual Environments.
-        \textit{IEEE Transactions on Visualization and Computer Graphics (TVCG)}. 2023.
+  \item (\textbf{TVCG 2023})
+        \textit{SceneFusion: Room-Scale Environmental Fusion for Efficient Traveling Between Separate Virtual Environments}.
+        Miao Wang, Yi-Jun Li, \me, Frank Steinicke.
+        \pl{Paper}{https://ieeexplore.ieee.org/document/10113740}
 
-  \item Yi-Jun Li, \me, Fang-Lue Zhang, Miao Wang.
-        Bullet Comments for 360$^\circ$ Video.
-        \textit{IEEE Conference on Virtual Reality and 3D User Interfaces (VR)}. 2022.
+  \item (\textbf{IEEE VR 2022})
+        \textit{Bullet Comments for 360$^\circ$ Video}.
+        Yi-Jun Li, \me, Fang-Lue Zhang, Miao Wang.
+        \pl{Paper}{https://ieeexplore.ieee.org/abstract/document/9756782}
 
-  \item Miao Wang, Ziming Ye, \me, Yong-Liang Yang.
-        Scene-Context-Aware Indoor Object Selection and Movement in VR.
-        \textit{IEEE Conference on Virtual Reality and 3D User Interfaces (VR)}. 2021.
+  \item (\textbf{IEEE VR 2021})
+        \textit{Scene-Context-Aware Indoor Object Selection and Movement in VR}.
+        Miao Wang, Ziming Ye, \me, Yong-Liang Yang.
+        \pl{Paper}{https://ieeexplore.ieee.org/document/9417774}
 \end{enumerate}
 
 %------------------------------------------------------------------------------
 %  Honors and Awards
 %------------------------------------------------------------------------------
-\section{Honors and Awards}
+\cvsection{Honors and Awards}
 \begin{itemize}
-  \item National Scholarship, China Ministry of Education, 2024
-  \item Outstanding Graduate Student, Beihang University, 2024
-  \item Outstanding Graduates of Beijing's Higher Education Institutions, 2022
-  \item Freshman Academic Scholarship (Special Prize), Beihang University, 2018
-  \item Outstanding Academic Scholarship, Beihang University, 2019--2021, 2023
-  \item Outstanding Student Leader Award, Beihang University, 2019--2021
+  \item National Scholarship, China Ministry of Education \hfill 2024
+  \item Outstanding Graduate Student, Beihang University \hfill 2024
+  \item Outstanding Graduates of Beijing's Higher Education Institutions \hfill 2022
+  \item Freshman Academic Scholarship (Special Prize), Beihang University \hfill 2018
+  \item Outstanding Academic Scholarship, Beihang University \hfill 2019--2021, 2023
+  \item Outstanding Student Leader Award, Beihang University \hfill 2019--2021
 \end{itemize}
 
 %------------------------------------------------------------------------------
 %  Service
 %------------------------------------------------------------------------------
-\section{Service}
+\cvsection{Service}
 \textbf{Reviewer:} ACM SIGGRAPH (Asia), NeurIPS, Pacific Graphics (PG), IEEE ISMAR
 
 %------------------------------------------------------------------------------
 %  Skills
 %------------------------------------------------------------------------------
-\section{Skills}
-\textbf{Programming:} Python, PyTorch, C, C++, CUDA, C\#, Unity3D, LaTeX, Linux, JavaScript, Java\par
-\textbf{Research areas:} 3D Reconstruction, Neural Rendering, Gaussian Splatting, Hand-Object Interaction, Dexterous Manipulation, VR/AR\par
+\cvsection{Skills}
+\textbf{Programming:} Python, PyTorch, C, C++, CUDA, C\#, Unity3D, LaTeX, Linux, JavaScript, Java\\
+\textbf{Research areas:} 3D Reconstruction, Neural Rendering, Gaussian Splatting, Hand-Object Interaction, Dexterous Manipulation, VR/AR\\
 \textbf{Languages:} English (fluent, CET-4 \& CET-6), Mandarin (native)
 
 \end{document}
