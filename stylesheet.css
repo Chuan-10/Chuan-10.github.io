@@ -342,8 +342,6 @@ details summary {
 details summary:hover { color: var(--link-hover); }
 details[open] summary { margin-bottom: 10px; }
 
-.details-list { margin-top: 8px; }
-
 /* ── FOOTER ── */
 footer {
   padding-top: 28px;
