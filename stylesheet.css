@@ -136,64 +136,6 @@ strong { font-weight: 600; color: inherit; }
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
 }
 
-/* ── RESEARCH TAB TOGGLE ── */
-.research-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-  position: relative;
-}
-
-.research-header::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 38px;
-  height: 2px;
-  background: var(--accent);
-}
-
-.section-heading-inline {
-  font-family: var(--font-serif);
-  font-size: 1.22rem;
-  font-weight: 500;
-  color: var(--heading);
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-
-.tab-toggle {
-  display: flex;
-  gap: 2px;
-  background: var(--border);
-  border-radius: 20px;
-  padding: 3px;
-}
-
-.tab-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  font-size: 13px;
-  color: var(--text-muted);
-  padding: 4px 14px;
-  border-radius: 17px;
-  transition: background 0.18s ease, color 0.18s ease;
-}
-
-.tab-btn.active {
-  background: #fff;
-  color: var(--heading);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
-}
-
-.tab-btn:hover:not(.active) { color: var(--text); }
-
 /* ── SECTION HEADINGS ── */
 section { margin-bottom: 44px; }
 
@@ -291,11 +233,11 @@ section { margin-bottom: 44px; }
 }
 
 /* author homepage links: match text, not blue, no underline */
-.paper-authors a, .pub-authors a {
+.paper-authors a {
   color: inherit;
   text-decoration: none;
 }
-.paper-authors a:hover, .pub-authors a:hover {
+.paper-authors a:hover {
   color: var(--link-hover);
 }
 
@@ -375,49 +317,6 @@ section { margin-bottom: 44px; }
 }
 
 .vr-papers-toggle > summary:hover { color: var(--link-hover); }
-
-/* ── PUBLICATION LIST ── */
-.pub-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.pub-item {
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--border);
-}
-
-.pub-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.pub-title {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--heading);
-  line-height: 1.5;
-  margin-bottom: 4px;
-}
-
-.pub-authors {
-  font-size: 13.5px;
-  color: var(--text-muted);
-  margin-bottom: 3px;
-}
-
-.pub-authors strong {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.pub-venue {
-  font-size: 13.5px;
-  color: var(--text-muted);
-}
 
 /* ── SIMPLE LIST (services / awards) ── */
 .simple-list {
