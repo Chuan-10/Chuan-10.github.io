@@ -254,6 +254,23 @@ section { margin-bottom: 44px; }
 
 .paper-links a { font-size: 13.5px; }
 
+.paper-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  align-items: baseline;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.paper-metrics a { color: inherit; }
+.paper-metrics a:hover, .paper-metrics a:focus { color: var(--link-hover); }
+.metric-value { color: var(--text); font-weight: 600; }
+.star-icon { color: var(--accent); font-size: 12px; }
+.metric-source { font-size: 12px; }
+.paper-metric[data-stale="true"]::after { content: ' (cached)'; font-size: 12px; }
+
 .paper-abstract {
   font-size: 13.5px;
   color: var(--text-muted);

@@ -1,0 +1,48 @@
+name: Update Google Scholar citations
+
+on:
+  schedule:
+    - cron: '17 2 * * 1'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-citations.yml'
+      - 'scripts/update_scholar.py'
+      - 'citation-counts.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-scholar-citations
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read Google Scholar citation counts
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: python3 scripts/update_scholar.py "$RUNNER_TEMP/citation-counts.json"
+      - name: Publish the snapshot to its own branch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git ls-remote --exit-code --heads origin refs/heads/scholar-metrics > /dev/null; then
+            git fetch --no-tags origin refs/heads/scholar-metrics:refs/remotes/origin/scholar-metrics
+            git switch -C scholar-metrics refs/remotes/origin/scholar-metrics
+          else
+            result=$?
+            if [ "$result" -ne 2 ]; then exit "$result"; fi
+            git switch --orphan scholar-metrics
+          fi
+          cp "$RUNNER_TEMP/citation-counts.json" citation-counts.json
+          git add -- citation-counts.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update Google Scholar citations'
+          fi
+          git push origin HEAD:refs/heads/scholar-metrics
