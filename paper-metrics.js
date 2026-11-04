@@ -83,11 +83,7 @@
     element.querySelector('[data-value]').textContent = formatted;
     element.dataset.stale = stale ? 'true' : 'false';
     element.title = `${source}${breakdown}; last updated ${updated}${note}`;
-    if (source === 'GitHub stars') {
-      element.setAttribute('aria-label', `${formatted} GitHub stars${stale ? ', cached' : ''}`);
-    } else {
-      element.setAttribute('aria-label', `${formatted} citations from Google Scholar${breakdown}${stale ? ', cached' : ''}`);
-    }
+    element.setAttribute('aria-label', `${formatted} citations from Google Scholar${breakdown}${stale ? ', cached' : ''}`);
   }
 
   function updateMetric(element, key, source, labels, fetchCounts) {
@@ -117,16 +113,9 @@
   }
 
   papers.forEach((paper) => {
-    const repo = paper.dataset.repo;
     const works = paper.dataset.works.split(',');
     const labels = paper.dataset.workLabels ? paper.dataset.workLabels.split(',') : works;
-    const stars = paper.querySelector('[data-stars]');
     const citations = paper.querySelector('[data-citations]');
-
-    updateMetric(stars, `github:${repo}`, 'GitHub stars', [repo], async () => {
-      const result = await readJson(`https://api.github.com/repos/${repo}`);
-      return { components: [result.stargazers_count], updatedAt: Date.now() };
-    });
 
     updateMetric(citations, `scholar:${works.join(',')}`, 'Google Scholar citations', labels, async () => {
       const snapshot = await readScholarSnapshot();
